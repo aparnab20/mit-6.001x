@@ -1,0 +1,79 @@
+# p1#
+
+for i in range(1,13):
+    p=balance*monthlyPaymentRate
+    
+    p=round(p, 2)
+    rb=balance-p
+    i=((rb/12)*annualInterestRate)
+    i=round(i, 2)
+    balance=i+rb
+    balance=round(balance, 2)
+    r=round(rb, 2)
+
+print('Remaining balance: ',balance)
+
+#p2#
+
+bal=balance
+monthlyPaymentRate=10
+def calc(monthlyPaymentRate,balance,annualInterestRate):
+    for i in range(1,13):
+        p=monthlyPaymentRate
+        
+        rb=balance-p
+        i=((rb/12)*annualInterestRate)
+        i=round(i, 2)
+        balance=i+rb
+        balance=round(balance, 2)
+    return balance
+    
+while True:
+    z=calc(monthlyPaymentRate,balance,annualInterestRate)
+    if z>0:
+        balance=bal
+        monthlyPaymentRate+=10
+    else:
+        print('Lowest Payment: ',monthlyPaymentRate)
+        break
+ #p3#
+ bal=balance
+
+mir=annualInterestRate/12
+lb = balance/12
+ub = (balance*((1 + mir)**12))/12.0
+monthlyPaymentRate =(ub+lb)/2
+
+def calc(balance,annualInterestRate):
+    for j in range(1,13):
+        p=monthlyPaymentRate
+        p=round(p, 2)
+        
+        rb=balance-p
+        i=((rb/12)*annualInterestRate)
+        i=round(i, 2)
+        balance=i+rb
+        balance=round(balance, 2)
+        
+    return balance
+    
+while True:
+    z=calc(balance,annualInterestRate)
+    
+    
+    if z>0.12 :
+        balance=bal
+        lb=monthlyPaymentRate
+        monthlyPaymentRate =(ub+lb)/2
+        
+    elif z<-0.12:
+        balance=bal
+        ub=monthlyPaymentRate
+        monthlyPaymentRate =(ub+lb)/2
+        
+        
+    else :
+        print('Lowest Payment: ',round(monthlyPaymentRate, 2))
+        break
+        
+        
