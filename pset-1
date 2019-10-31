@@ -1,0 +1,43 @@
+### problem-1###
+v=0
+for i in s:
+    if i=='a' or i=='e' or i=='i' or i=='o' or i=='u':
+        v+=1
+print('Number of vowels: ',v)
+
+
+###problem-2###
+
+a = 0
+numCons = 0
+print(s[0:3])
+for i in range(0,len(s)):
+    if s[i:i+3]   == 'bob':
+        a += 1
+print(a)
+
+###problem-3###
+k=''
+l=''
+i=0
+n=0
+s=s+' '
+j=0
+for j in range(0,len(s)):
+    while (i<len(s)) and (s[i]!=' '):
+        if s[i]<=s[i+1]:
+            k=k+s[i]
+            i+=1
+        else:
+            k=k+s[i]
+            s=s[i+1:len(s)]
+            m=len(k)
+            i=0
+            if(m>n):
+                n=m
+                l=k
+                k=''
+            else:
+                k=''
+            break
+print('Longest substring in alphabetical order is: ',l)
